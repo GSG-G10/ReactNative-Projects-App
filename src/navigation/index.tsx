@@ -1,5 +1,5 @@
 /* eslint-disable import/namespace */
-import { MaterialIcons } from '@expo/vector-icons'; 
+import { MaterialIcons,Ionicons } from '@expo/vector-icons'; 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -46,7 +46,7 @@ var BottomTabNavigator = () => {
         component={Screens.MessagesScreen}
         options={({ navigation }: RootTabScreenProps<'TabTwo'>) => ({
           title: 'Messages',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <Ionicons name="chatbubble-outline" size={24} color={color} />,
           
         })}
       />
