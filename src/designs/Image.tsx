@@ -6,10 +6,17 @@ import { Image as RNImage, View, ActivityIndicator } from "react-native";
 const BASE_IMAGE_URI =
   "https://comnplayscience.eu/app/images/notfound.png";
 
-const Image = ({ height = 50, uri = BASE_IMAGE_URI, width = 50 }) => {
+interface ImageProps {
+  height: number;
+  width: number;
+   uri: string;
+  style: any;
+}
+
+const Image = ({ height = 50, uri = BASE_IMAGE_URI, width = 50, style= null }: ImageProps) => {
   const [loading, setLoding] = useState(true);
   const [isError, setIsError] = useState(false);
-  const styles = { width, height };
+  const styles = {width,height,...style};
   return (
     <View style={styles}>
       {loading && !isError && (
