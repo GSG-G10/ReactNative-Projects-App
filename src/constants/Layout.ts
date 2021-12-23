@@ -1,3 +1,4 @@
+/* eslint-disable import/namespace */
 import { Dimensions } from 'react-native';
 
 const width = Dimensions.get('window').width;

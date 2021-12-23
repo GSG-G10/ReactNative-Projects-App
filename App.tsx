@@ -5,6 +5,17 @@ import useCachedResources from './src/hooks/useCachedResources';
 import useColorScheme from './src/hooks/useColorScheme';
 import Navigation from './src/navigation';
 
+import getData from './src/api/getData'
+
+interface getDataProps {
+  name: string
+}
+
+const test = async () => {
+  const result = await getData('projects')
+  console.log(result)
+}
+test()
 const App = () => {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
