@@ -1,35 +1,36 @@
 /* eslint-disable import/namespace */
-import { StyleSheet } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
+import { Pressable, StyleSheet } from "react-native";
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-import { RootTabScreenProps } from '../types';
-
+import { Text, View } from "../components/Themed";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   separator: {
     marginVertical: 30,
     height: 1,
-    width: '80%',
+    width: "80%",
   },
 });
 
 const ProjectsScreen = () => {
+  const navigation = useNavigation();
   return (
-    <View style={styles.container}>
+    <Pressable
+      style={styles.container}
+      onPress={() => navigation.navigate("ProjectScreen")}
+    >
       <Text style={styles.title}>ProjectsScreen</Text>
-    </View>
+    </Pressable>
   );
-}
+};
 
-
-export default ProjectsScreen
+export default ProjectsScreen;
