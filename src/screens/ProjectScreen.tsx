@@ -15,21 +15,25 @@ const ProjectScreen = () => {
   const navigation = useNavigation();
   const list = [
     {
+      id: 0,
       name: "specifications",
       icon: <Feather name="settings" size={24} color="black" />,
       cb: () => navigation.navigate("EstimateScreen"),
     },
     {
+      id:1,
       name: "Estimate",
       icon: <Feather name="edit" size={24} color="black" />,
       cb: () => console.log("2"),
     },
     {
+      id:2,
       name: "Punch List",
       icon: <Feather name="check-circle" size={24} color="black" />,
       cb: () => console.log("3"),
     },
     {
+      id:3,
       name: "schedule",
       icon: <MaterialIcons name="date-range" size={24} color="black" />,
       cb: () => console.log("4"),
@@ -62,7 +66,7 @@ const ProjectScreen = () => {
         ItemSeparatorComponent={Divider}
         renderItem={({ item, index }) => (
           <OptionNavigator
-            key={item.name}
+            key={item.id}
             name={item.name}
             icon={item.icon}
             cb={item.cb}
