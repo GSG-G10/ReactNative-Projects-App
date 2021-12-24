@@ -10,10 +10,10 @@ interface ImageProps {
   height: number;
   width: number;
    uri: string;
-  style: any;
+  style?: object;
 }
 
-const Image = ({ height = 50, uri = BASE_IMAGE_URI, width = 50, style= null }: ImageProps) => {
+const Image = ({ height = 50, uri = BASE_IMAGE_URI, width = 50, style={} }: ImageProps) => {
   const [loading, setLoding] = useState(true);
   const [isError, setIsError] = useState(false);
   const styles = {width,height,...style};

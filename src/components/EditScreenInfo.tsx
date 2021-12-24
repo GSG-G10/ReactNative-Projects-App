@@ -1,11 +1,16 @@
-/* eslint-disable import/namespace */
-
 import * as WebBrowser from "expo-web-browser";
-import { StyleSheet, TouchableOpacity } from "react-native"
+// eslint-disable-next-line import/namespace
+import { StyleSheet, TouchableOpacity } from "react-native";
 
 import Colors from "../constants/Colors";
 import { MonoText } from "./StyledText";
 import { Text, View } from "./Themed";
+
+function handleHelpPress() {
+  WebBrowser.openBrowserAsync(
+    "https://docs.expo.io/get-started/create-a-new-app/#opening-the-app-on-your-phonetablet"
+  );
+}
 
 const styles = StyleSheet.create({
   getStartedContainer: {
@@ -37,13 +42,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const handleHelpPress = () => {
-  WebBrowser.openBrowserAsync(
-    "https://docs.expo.io/get-started/create-a-new-app/#opening-the-app-on-your-phonetablet"
-  );
-};
-
-const EditScreenInfo = ({ path }: { path: string }) => {
+export default ({ path }: { path: string }) => {
   return (
     <View>
       <View style={styles.getStartedContainer}>
@@ -84,5 +83,3 @@ const EditScreenInfo = ({ path }: { path: string }) => {
     </View>
   );
 };
-
-export default EditScreenInfo;
