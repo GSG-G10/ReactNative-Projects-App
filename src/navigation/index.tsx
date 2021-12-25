@@ -70,7 +70,21 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const RootNavigator = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="SplashScreen" component={Screens.SplashScreen} options={{ headerShown: false }} />
+      <Stack.Screen
+        name="SplashScreen"
+        component={Screens.SplashScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="SignInScreen"
+        component={Screens.SignInScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="SignUpScreen"
+        component={Screens.SignUpScreen}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="Root"
         component={BottomTabNavigator}

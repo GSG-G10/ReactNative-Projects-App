@@ -1,24 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 export type ProjectsListState = {
   data: Array<any>;
 };
 
-
 const initialState: ProjectsListState = {
   data: [],
 };
-
 
 const projectsListSlice = createSlice({
   name: "projectsList",
   initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase("STORE_DATA",(state,action:any)=>{
-      state.data = action.payload
-    })
+    builder.addCase("STORE_DATA", (state, action: any) => {
+      state.data = action.payload;
+    });
   },
 });
 
