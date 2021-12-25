@@ -1,17 +1,20 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable import/namespace */
 import { useNavigation } from "@react-navigation/native";
 import React, { useEffect } from "react";
 import { View,Text } from "react-native";
-import { useDispatch } from "react-redux";
+import { DefaultRootState, useDispatch,useSelector } from "react-redux";
 
 import { getData } from "../api";
 
 
-import storeData from '../redux/actions';
+import {storeData} from '../redux/actions';
 
 const SplashScreen = () => {
   const navigation = useNavigation()
   const dispatch = useDispatch();
+  //@ts-ignore
+  const {userAuth} = useSelector((state:DefaultRootState)=> state)
 
 
   useEffect(() => {
@@ -22,9 +25,13 @@ const SplashScreen = () => {
     requestData()
     
     setTimeout(() =>{
-      return navigation.navigate('Root');
-    },2000)
-  });
+      if(!userAuth.value.isAuth){
+        return navigation.navigate('SignInScreen')
+      }else{
+        return navigation.navigate('Root');
+      }
+    },1500)
+  },[]);
 
   return (
     <View

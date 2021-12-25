@@ -1,14 +1,14 @@
-import {combineReducers,configureStore} from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
-import projectsListSlice from './projectsListSlice';
+import { projectsListSlice, userAuthSlice } from "./reducers";
 
-const rootReducer =  combineReducers({ 
+const rootReducer = combineReducers({
+  userAuth: userAuthSlice,
   projectsList: projectsListSlice,
-
-})
+});
 
 const store = configureStore({
-    reducer: rootReducer
-  })
+  reducer: rootReducer,
+});
 
-export default store
+export default store;

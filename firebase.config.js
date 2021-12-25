@@ -1,6 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore/lite';
+import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword} from "firebase/auth";
 
 
 import {
@@ -29,5 +30,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
 
-export default db;
+export {db,auth};
