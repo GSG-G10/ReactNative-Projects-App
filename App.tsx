@@ -1,17 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StatusBar } from "expo-status-bar";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
-import useCachedResources from './src/hooks/useCachedResources';
-import useColorScheme from './src/hooks/useColorScheme';
-import Navigation from './src/navigation';
+// Redux Toolkit
+import { Provider as ReduxProvider } from "react-redux";
 
-import {getData} from './src/api'
+import useCachedResources from "./src/hooks/useCachedResources";
+import useColorScheme from "./src/hooks/useColorScheme";
+import Navigation from "./src/navigation";
 
-const test = async (name:string) => {
-  const result = await getData(name)
-  console.log(result)
-}
-test('projects')
+import store from './src/redux/store';
 
 const App = () => {
   const isLoadingComplete = useCachedResources();
@@ -22,10 +19,12 @@ const App = () => {
   } else {
     return (
       <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
-      </SafeAreaProvider>
+          <ReduxProvider store={store}>
+          <Navigation colorScheme={colorScheme} />
+          <StatusBar />
+       </ReduxProvider>
+        </SafeAreaProvider>
     );
   }
-}
+};
 export default App;
