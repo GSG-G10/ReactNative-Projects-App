@@ -1,7 +1,8 @@
 /* eslint-disable import/namespace */
-import { StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-import { View } from "../components/Themed";
+import {Pressable, StyleSheet } from "react-native";
+
 import { Card } from "../design/Card";
 
 const styles = StyleSheet.create({
@@ -23,30 +24,32 @@ const styles = StyleSheet.create({
 });
 
 const ProjectsScreen = () => {
+  const navigation = useNavigation();
   return (
-    <View style={styles.container}>
+    <Pressable style={styles.container}>
       <Card
         title="card"
         price="2523 $"
         icon="clockcircleo"
         status="In Progress"
-        onPress={() => console.log("hello card")}
+        onPress={() => navigation.navigate("ProjectScreen")}
+      />
+      
+      <Card
+        title="card"
+        price="2523 $"
+        icon="closecircleo"
+        status="Cancelled"
+        onPress={() => navigation.navigate("ProjectScreen")}
       />
       <Card
         title="card"
         price="2523 $"
         icon="closecircleo"
         status="Cancelled"
-        onPress={() => console.log("hello card")}
+        onPress={() => navigation.navigate("ProjectScreen")}
       />
-      <Card
-        title="card"
-        price="2523 $"
-        icon="closecircleo"
-        status="Cancelled"
-        onPress={() => console.log("hello card")}
-      />
-    </View>
+    </Pressable>
   );
 };
 
