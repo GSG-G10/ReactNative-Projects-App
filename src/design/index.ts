@@ -1,5 +1,5 @@
 import { ButtonComponent } from "./Button";
 import { IconComponent } from "./Icon";
-import { Text } from "./Text";
+import { TextComponent } from "./Text";
 
-export { ButtonComponent, IconComponent, Text };
+export { ButtonComponent, IconComponent, TextComponent };
