@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore/lite';
-import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword} from "firebase/auth";
+import { getAuth } from "firebase/auth";
 
 
 import {
