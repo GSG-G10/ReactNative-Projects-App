@@ -19,7 +19,7 @@ const SplashScreen = () => {
 
   useEffect(() => {
     const requestData = async() => {
-      const result = await getData('projects');
+      const result = await getData();
       return dispatch(storeData(result))
     };
     requestData()

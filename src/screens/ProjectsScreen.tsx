@@ -5,7 +5,6 @@ import { Pressable, ScrollView, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
 
 import { Card } from "../design/Card";
-import { Divider } from "../designs";
 
 const styles = StyleSheet.create({
   container: {
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
 const ProjectsScreen = () => {
   const { projectsList } = useSelector((state: any) => state);
   const navigation = useNavigation();
-  
+
   return (
     <ScrollView>
     <Pressable style={styles.container}>

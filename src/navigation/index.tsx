@@ -1,5 +1,5 @@
 /* eslint-disable import/namespace */
-import { MaterialIcons, Ionicons } from "@expo/vector-icons";
+import { MaterialIcons, Ionicons, AntDesign } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   NavigationContainer,
@@ -48,6 +48,17 @@ var BottomTabNavigator = () => {
           title: "Projects",
           tabBarIcon: ({ color }) => (
             <MaterialIcons name="storefront" size={24} color={color} />
+          ),
+          headerRight: () => (
+            <Pressable
+              onPress={() => navigation.navigate("NewProjectScreen")}
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.5 : 1,
+                marginRight: 24,
+              })}
+            >
+              <AntDesign name="pluscircleo" size={24} color="black" />
+            </Pressable>
           ),
         })}
       />
@@ -105,6 +116,13 @@ const RootNavigator = () => {
         component={NotFoundScreen}
         options={{ title: "Oops!" }}
       />
+      <Stack.Group>
+        <Stack.Screen
+          name="NewProjectScreen"
+          component={Screens.NewProjectScreen}
+          options={{ title: "New Project" }}
+        />
+      </Stack.Group>
     </Stack.Navigator>
   );
 };

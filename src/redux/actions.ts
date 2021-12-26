@@ -11,3 +11,16 @@ export const createAuth = (data: object) => {
     payload: data,
   };
 };
+
+export const setImageUri = (uri: string) => {
+  return {
+    type: "SET_URI",
+    payload: uri,
+  };
+};
+export const addNewProject = (newProject: object) => {
+  return {
+    type: "ADD_PROJECT",
+    payload: newProject,
+  };
+};

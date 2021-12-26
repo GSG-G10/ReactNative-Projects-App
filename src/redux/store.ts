@@ -1,10 +1,11 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
-import { projectsListSlice, userAuthSlice } from "./reducers";
+import { projectsListSlice, userAuthSlice, imageSlice } from "./reducers";
 
 const rootReducer = combineReducers({
   userAuth: userAuthSlice,
   projectsList: projectsListSlice,
+  postImageUri: imageSlice,
 });
 
 const store = configureStore({
