@@ -34,7 +34,7 @@ var BottomTabNavigator = () => {
       }}>
       <BottomTab.Screen
         name="TabOne"
-        component={Screens.ProjectsScreen}
+        component={Screens.SpecificationsScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
           title: 'Projects',
           tabBarIcon: ({ color }) => <MaterialIcons name="storefront" size={24} color={color} />,
@@ -61,6 +61,7 @@ const RootNavigator = () => {
     <Stack.Navigator>
       {/* <Stack.Screen name="SplashScreen" component={Screens.SplashScreen} options={{ headerShown: false }} /> */}
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
+      {/* <Stack.Screen name="Specifications" component={Screens.SpecificationsScreen} options={{ title: 'Specifications' }} /> */}
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       
     </Stack.Navigator>
