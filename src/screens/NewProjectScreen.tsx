@@ -30,6 +30,7 @@ const NewProjectScreen = () => {
         imageUrl,
         cost,
         description,
+        status: 'Waiting'
       });
       dispatch(addNewProject(response));
       navigation.navigate("Root");
