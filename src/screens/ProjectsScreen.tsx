@@ -1,7 +1,9 @@
 /* eslint-disable import/namespace */
-import { StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-import { View } from "../components/Themed";
+import { Pressable, ScrollView, StyleSheet } from "react-native";
+import { useSelector } from "react-redux";
+
 import { Card } from "../design/Card";
 
 const styles = StyleSheet.create({
@@ -10,6 +12,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#f5f5fa",
+    marginVertical:16,
+    
   },
   title: {
     fontSize: 20,
@@ -22,31 +26,39 @@ const styles = StyleSheet.create({
   },
 });
 
+ const iconsHandler = (type:string)=>{
+  switch(type){
+    case "Completed":
+      return "checkcircleo";
+    case "Cancelled":
+      return "closecircleo";
+    case "In progress":
+      return "loading1"
+    default:
+      return "form";
+  }
+}
+
+
 const ProjectsScreen = () => {
+  const { projectsList } = useSelector((state: any) => state);
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.container}>
-      <Card
-        title="card"
-        price="2523 $"
-        icon="clockcircleo"
-        status="In Progress"
-        onPress={() => console.log("hello card")}
+    <ScrollView>
+    <Pressable style={styles.container}>
+      {projectsList.data.length > 0 ? projectsList.data.map((elm:any)=>(
+        <Card
+        key={elm.id}
+        title={elm.name}
+        price={elm.cost}
+        icon={iconsHandler(elm.status)}
+        status={elm.status}
+        onPress={() => navigation.navigate("ProjectScreen",elm)}
       />
-      <Card
-        title="card"
-        price="2523 $"
-        icon="closecircleo"
-        status="Cancelled"
-        onPress={() => console.log("hello card")}
-      />
-      <Card
-        title="card"
-        price="2523 $"
-        icon="closecircleo"
-        status="Cancelled"
-        onPress={() => console.log("hello card")}
-      />
-    </View>
+      )) : null}
+    </Pressable>
+    </ScrollView>
   );
 };
 

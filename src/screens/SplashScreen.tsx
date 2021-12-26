@@ -1,13 +1,48 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable import/namespace */
-import React from 'react'
-import { View, Text } from 'react-native'
+import { useNavigation } from "@react-navigation/native";
+import React, { useEffect } from "react";
+import { View,Text } from "react-native";
+import { DefaultRootState, useDispatch,useSelector } from "react-redux";
+
+import { getData } from "../api";
+
+
+import {storeData} from '../redux/actions';
 
 const SplashScreen = () => {
-    return (
-        <View>
-            <Text>Splash</Text>
-        </View>
-    )
-}
+  const navigation = useNavigation()
+  const dispatch = useDispatch();
+  //@ts-ignore
+  const {userAuth} = useSelector((state:DefaultRootState)=> state)
 
-export default SplashScreen
+
+  useEffect(() => {
+    const requestData = async() => {
+      const result = await getData();
+      return dispatch(storeData(result))
+    };
+    requestData()
+    
+    setTimeout(() =>{
+      if(!userAuth.value.isAuth){
+        return navigation.navigate('SignInScreen')
+      }else{
+        return navigation.navigate('Root');
+      }
+    },1500)
+  },[]);
+
+  return (
+    <View
+      style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+    >
+      <Text>
+        Splash
+      </Text>
+    </View>
+  );
+};
+
+
+export default SplashScreen;

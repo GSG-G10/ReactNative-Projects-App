@@ -1,18 +1,18 @@
 /* eslint-disable import/no-unresolved */
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore/lite';
-
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import { getStorage } from "firebase/storage";
 
 import {
-    API_KEY,
-    AUTH_DOMAIN,
-    PROJECT_ID,
-    STORAGE_BUCKET,
-    MESSAGING_SENDER_ID,
-    APP_ID,
-    TEST_API
-} from '@env';
-
+  API_KEY,
+  AUTH_DOMAIN,
+  PROJECT_ID,
+  STORAGE_BUCKET,
+  MESSAGING_SENDER_ID,
+  APP_ID,
+  TEST_API,
+} from "@env";
 
 // Initialize Firebase
 
@@ -25,9 +25,11 @@ const firebaseConfig = {
   appId: APP_ID,
 };
 
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
+const storage = getStorage(app);
+const projectsRef = collection(db, "projects");
 
-export default db;
+export { db, auth, storage, projectsRef };
