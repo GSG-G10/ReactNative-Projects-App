@@ -13,17 +13,6 @@ type CardProps = {
   onPress: () => void;
 };
 
-// type Colors = {
-//   [key: string]: string;
-// };
-
-// const iconColors: Colors = {
-//   Cancelled: "#cf000f",
-//   "In Progress": "#e69138",
-//   Complete: "#009944",
-//   "Estimate Sent": "#63c0df",
-// };
-
 const styles = StyleSheet.create({
   container: {
     padding: 20,
