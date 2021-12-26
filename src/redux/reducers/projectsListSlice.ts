@@ -13,9 +13,13 @@ const projectsListSlice = createSlice({
   initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase("STORE_DATA", (state, action: any) => {
-      state.data = action.payload;
-    });
+    builder
+      .addCase("STORE_DATA", (state, action: any) => {
+        state.data = action.payload;
+      })
+      .addCase("ADD_PROJECT", (state, action: any) => {
+        state.data = [...state.data, action.payload];
+      });
   },
 });
 

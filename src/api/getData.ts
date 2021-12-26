@@ -1,18 +1,15 @@
-import { collection, getDocs } from "firebase/firestore/lite";
-import { db } from "../../firebase.config";
+import { getDocs } from "firebase/firestore";
+import { projectsRef } from "../../firebase.config";
 
-const getData = async (query: string) => {
+const getData = async () => {
   try {
-    const colRef = collection(db, `${query}`);
-    //@ts-ignore
-    const { _docs } = await getDocs(colRef);
-
-    const data = _docs.map((elm: any) => {
-      return { ...elm.data(), id: elm.id };
+    const { docs } = await getDocs(projectsRef);
+    const data = docs.map((elm) => {
+      return elm.data();
     });
     return data;
   } catch (error: any) {
-    console.warn(error.message);
+    return error.message;
   }
 };
 
