@@ -1,7 +1,7 @@
 import { FC } from "react";
 // eslint-disable-next-line import/namespace
 import { View, StyleSheet, TouchableOpacity } from "react-native";
-import { TextComponent, IconComponent } from "..";
+import { Text, IconComponent } from "..";
 
 type CardProps = {
   title: string;
@@ -60,8 +60,8 @@ export const Card: FC<CardProps> = ({
 }) => (
   <TouchableOpacity style={styles.container} onPress={onPress}>
     <View style={styles.header}>
-      <TextComponent value={title} h4 style={styles.headerText} />
-      <TextComponent value={price} h4 style={styles.headerText} />
+      <Text value={title} typography="h2" style={styles.headerText} />
+      <Text value={price} typography="h2" style={styles.headerText} />
     </View>
     <View style={styles.statusContainer}>
       <IconComponent
@@ -69,7 +69,7 @@ export const Card: FC<CardProps> = ({
         color={iconColors[status]}
         raised={false}
       />
-      <TextComponent value={status} style={styles.statusText} />
+      <Text value={status} style={styles.statusText} />
     </View>
   </TouchableOpacity>
 );
