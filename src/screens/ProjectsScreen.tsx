@@ -1,9 +1,11 @@
 /* eslint-disable import/namespace */
 import { useNavigation } from "@react-navigation/native";
 
-import {Pressable, StyleSheet } from "react-native";
+import { Pressable, ScrollView, StyleSheet } from "react-native";
+import { useSelector } from "react-redux";
 
 import { Card } from "../design/Card";
+import { Divider } from "../designs";
 
 const styles = StyleSheet.create({
   container: {
@@ -11,6 +13,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#f5f5fa",
+    marginVertical:16,
+    
   },
   title: {
     fontSize: 20,
@@ -23,33 +27,39 @@ const styles = StyleSheet.create({
   },
 });
 
+ const iconsHandler = (type:string)=>{
+  switch(type){
+    case "Completed":
+      return "checkcircleo";
+    case "Cancelled":
+      return "closecircleo";
+    case "In progress":
+      return "loading1"
+    default:
+      return "form";
+  }
+}
+
+
 const ProjectsScreen = () => {
+  const { projectsList } = useSelector((state: any) => state);
   const navigation = useNavigation();
+  
   return (
+    <ScrollView>
     <Pressable style={styles.container}>
-      <Card
-        title="card"
-        price="2523 $"
-        icon="clockcircleo"
-        status="In Progress"
-        onPress={() => navigation.navigate("ProjectScreen")}
+      {projectsList.data.length > 0 ? projectsList.data.map((elm:any)=>(
+        <Card
+        key={elm.id}
+        title={elm.name}
+        price={elm.cost}
+        icon={iconsHandler(elm.status)}
+        status={elm.status}
+        onPress={() => navigation.navigate("ProjectScreen",elm)}
       />
-      
-      <Card
-        title="card"
-        price="2523 $"
-        icon="closecircleo"
-        status="Cancelled"
-        onPress={() => navigation.navigate("ProjectScreen")}
-      />
-      <Card
-        title="card"
-        price="2523 $"
-        icon="closecircleo"
-        status="Cancelled"
-        onPress={() => navigation.navigate("ProjectScreen")}
-      />
+      )) : null}
     </Pressable>
+    </ScrollView>
   );
 };
 

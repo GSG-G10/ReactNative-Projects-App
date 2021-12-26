@@ -3,6 +3,8 @@ import { FC } from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { TextComponent, IconComponent } from "..";
 
+import {handleStatusColor} from '../../utils'
+
 type CardProps = {
   title: string;
   price: string;
@@ -11,26 +13,26 @@ type CardProps = {
   onPress: () => void;
 };
 
-type Colors = {
-  [key: string]: string;
-};
+// type Colors = {
+//   [key: string]: string;
+// };
 
-const iconColors: Colors = {
-  Cancelled: "#cf000f",
-  "In Progress": "#e69138",
-  Complete: "#009944",
-  "Estimate Sent": "#63c0df",
-};
+// const iconColors: Colors = {
+//   Cancelled: "#cf000f",
+//   "In Progress": "#e69138",
+//   Complete: "#009944",
+//   "Estimate Sent": "#63c0df",
+// };
 
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    marginVertical: 5,
+    marginVertical: 8,
     width: "90%",
-    height: 150,
+    height: 120,
     justifyContent: "space-around",
     backgroundColor: "#fff",
-    borderRadius: 10,
+    borderRadius: 4,
   },
   header: {
     flexDirection: "row",
@@ -38,6 +40,8 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: "#32343b",
+    fontSize: 20,
+    fontWeight:"600",
   },
   statusContainer: {
     flexDirection: "row",
@@ -45,9 +49,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   statusText: {
-    color: "#ced1d8",
     paddingHorizontal: 10,
-    fontSize: 20,
+    fontSize: 16,
+    fontWeight:"300",
   },
 });
 
@@ -60,16 +64,16 @@ export const Card: FC<CardProps> = ({
 }) => (
   <TouchableOpacity style={styles.container} onPress={onPress}>
     <View style={styles.header}>
-      <TextComponent value={title} h4 style={styles.headerText} />
-      <TextComponent value={price} h4 style={styles.headerText} />
+      <TextComponent value={title} style={styles.headerText} />
+      <TextComponent value={`$${price}`} style={styles.headerText} />
     </View>
     <View style={styles.statusContainer}>
       <IconComponent
         iconName={icon}
-        color={iconColors[status]}
+        color={handleStatusColor(status)}
         raised={false}
       />
-      <TextComponent value={status} style={styles.statusText} />
+      <TextComponent value={status} style={[{...styles.statusText,color:handleStatusColor(status)}]} />
     </View>
   </TouchableOpacity>
 );

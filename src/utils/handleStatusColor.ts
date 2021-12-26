@@ -7,7 +7,7 @@ const handleStatusColor = (status: string) => {
       case "Cancelled":
         return "#cf000f";
       default:
-        return "#63c0df";
+        return "gray";
     }
   };
 export default handleStatusColor
