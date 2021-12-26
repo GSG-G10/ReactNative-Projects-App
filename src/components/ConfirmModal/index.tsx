@@ -45,7 +45,7 @@ const ConfirmModal = ({
                 style={[styles.button, styles.buttonSave]}
                 onPress={() => setClose()}
               >
-                <Text style={styles.textStyle}>SAVE</Text>
+                <Text style={styles.textStyle}>DELETE</Text>
               </Pressable>
             </View>
           </View>
