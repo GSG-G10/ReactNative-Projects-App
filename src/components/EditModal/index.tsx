@@ -35,13 +35,13 @@ const EditModal = ({
             <TextInput
               placeholder="Description"
               // value={description}
-              // onChangeText={setEmail}
+              // onChangeText={setDescription}
               style={styles.textInput}
             />
             <TextInput
               placeholder="Cost"
-              // value={description}
-              // onChangeText={setEmail}
+              // value={price}
+              // onChangeText={setPrice}
               style={styles.textInput}
             />
             <View style={styles.buttonsContainer}>
