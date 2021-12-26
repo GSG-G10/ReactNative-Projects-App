@@ -1,7 +1,7 @@
 import { FC } from "react";
 // eslint-disable-next-line import/namespace
 import { View, StyleSheet, TouchableOpacity } from "react-native";
-import { Text, IconComponent } from "..";
+import { TextComponent, IconComponent } from "..";
 
 import {handleStatusColor} from '../../utils'
 
@@ -53,13 +53,8 @@ export const Card: FC<CardProps> = ({
 }) => (
   <TouchableOpacity style={styles.container} onPress={onPress}>
     <View style={styles.header}>
-<<<<<<< HEAD
-      <Text value={title} typography="h2" style={styles.headerText} />
-      <Text value={price} typography="h2" style={styles.headerText} />
-=======
       <TextComponent value={title} style={styles.headerText} />
       <TextComponent value={`$${price}`} style={styles.headerText} />
->>>>>>> 24e6771c95986c19c4a4230215b8e1998dda6d53
     </View>
     <View style={styles.statusContainer}>
       <IconComponent
@@ -67,11 +62,7 @@ export const Card: FC<CardProps> = ({
         color={handleStatusColor(status)}
         raised={false}
       />
-<<<<<<< HEAD
-      <Text value={status} style={styles.statusText} />
-=======
       <TextComponent value={status} style={[{...styles.statusText,color:handleStatusColor(status)}]} />
->>>>>>> 24e6771c95986c19c4a4230215b8e1998dda6d53
     </View>
   </TouchableOpacity>
 );

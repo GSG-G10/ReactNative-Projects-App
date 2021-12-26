@@ -5,16 +5,14 @@ import styles from './styles';
 
 interface EditModalProps {
   visible?: boolean;
-  price?: String;
-  cb?: () => void;
   setVisible?: any;
+  cb?: () => void;
 }
 
 const EditModal = ({
   visible,
-  price,
-  cb,
   setVisible,
+  cb,
 }: EditModalProps) => {
 
   const setClose = () => {
