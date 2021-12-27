@@ -22,7 +22,12 @@ const SignInScreen = () => {
     try {
       const response = await signIn(email, password);
       dispatch(
-        createAuth({ isAuth: true, id: response.id, token: response.token })
+        createAuth({
+          isAuth: true,
+          id: response.id,
+          token: response.token,
+          email: response.email,
+        })
       );
       return navigation.navigate("Root");
     } catch (err) {
