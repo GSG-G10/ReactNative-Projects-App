@@ -6,6 +6,7 @@ import Estimate from "./Estimate";
 import SignInScreen from "./SignInScreen";
 import SignUpScreen from "./SignUpScreen";
 import NewProjectScreen from "./NewProjectScreen";
+import SpecificationsScreen from "./SpecificationsScreen";
 
 export {
   ProjectsScreen,
@@ -16,4 +17,5 @@ export {
   SignInScreen,
   SignUpScreen,
   NewProjectScreen,
+  SpecificationsScreen,
 };

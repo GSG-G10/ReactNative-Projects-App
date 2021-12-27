@@ -122,6 +122,11 @@ const RootNavigator = () => {
           component={Screens.NewProjectScreen}
           options={{ title: "New Project" }}
         />
+        <Stack.Screen
+          name="Specifications"
+          component={Screens.SpecificationsScreen}
+          options={{ title: "Specifications" }}
+        />
       </Stack.Group>
     </Stack.Navigator>
   );
