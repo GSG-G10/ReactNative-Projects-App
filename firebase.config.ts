@@ -3,6 +3,8 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
+import { getDatabase } from "firebase/database";
+
 
 import {
   API_KEY,
@@ -12,6 +14,7 @@ import {
   MESSAGING_SENDER_ID,
   APP_ID,
   TEST_API,
+  //@ts-ignore
 } from "@env";
 
 // Initialize Firebase
@@ -31,5 +34,6 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 const storage = getStorage(app);
 const projectsRef = collection(db, "projects");
+const rtDatabase = getDatabase(app);
 
-export { db, auth, storage, projectsRef };
+export { db, auth, storage, projectsRef,rtDatabase };
