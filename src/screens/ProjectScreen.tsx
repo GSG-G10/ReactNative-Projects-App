@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 // eslint-disable-next-line import/namespace
 import { View, Text, FlatList } from "react-native";
 
-import { Image, Divider } from "../designs";
+import { Image, Divider } from "../design";
 import { handleStatusColor } from "../utils";
 import styles from "./styles/ProjectScreenStyle";
 import OptionNavigator from "../components/OptionNavigator";
