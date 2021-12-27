@@ -22,12 +22,12 @@ const SplashScreen = () => {
       const result = await getData();
       return dispatch(storeData(result))
     };
-    requestData()
     
     setTimeout(() =>{
       if(!userAuth.value.isAuth){
         return navigation.navigate('SignInScreen')
       }else{
+        requestData()
         return navigation.navigate('Root');
       }
     },1500)

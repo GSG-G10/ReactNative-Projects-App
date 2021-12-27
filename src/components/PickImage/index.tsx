@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { firebaseStorage } from "../../api";
 
-import { Image } from "../../designs";
+import { Image } from "../../design";
 import styles from "./styles";
 
 const PickImage = () => {

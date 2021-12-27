@@ -33,7 +33,9 @@ const styles = StyleSheet.create({
     case "Cancelled":
       return "closecircleo";
     case "In progress":
-      return "loading1"
+      return "loading1";
+      case "Waiting":
+      return "clockcircleo"
     default:
       return "form";
   }
