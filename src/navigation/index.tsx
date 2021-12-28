@@ -21,6 +21,7 @@ import {
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import { StatusBar } from "expo-status-bar";
+import FilterButtonAndroid from "../components/FilterButtonAndroid";
 
 var TabBarIcon = (props: {
   name: React.ComponentProps<typeof MaterialIcons>["name"];
@@ -51,13 +52,22 @@ var BottomTabNavigator = () => {
           ),
           headerRight: () => (
             <Pressable
-              onPress={() => navigation.navigate("NewProjectScreen")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
+              style={{
                 marginRight: 24,
-              })}
+                flexDirection: "row",
+                alignItems: "center",
+              }}
             >
-              <AntDesign name="pluscircleo" size={24} color="black" />
+              <FilterButtonAndroid />
+
+              <Pressable
+                style={({ pressed }) => ({
+                  opacity: pressed ? 0.5 : 1,
+                })}
+                onPress={() => navigation.navigate("NewProjectScreen")}
+              >
+                <AntDesign name="pluscircleo" size={24} color="#0079FB" />
+              </Pressable>
             </Pressable>
           ),
         })}

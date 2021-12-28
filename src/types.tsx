@@ -23,6 +23,7 @@ export type RootStackParamList = {
   NewProjectScreen: undefined;
   NotFound: undefined;
   Specifications: undefined;
+  SearchScreen: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

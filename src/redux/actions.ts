@@ -24,3 +24,10 @@ export const addNewProject = (newProject: object) => {
     payload: newProject,
   };
 };
+
+export const filterProjects = (name: string) => {
+  return {
+    type: "FILTER_PROJECTS",
+    payload: name,
+  };
+};
