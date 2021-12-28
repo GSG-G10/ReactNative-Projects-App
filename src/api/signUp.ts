@@ -12,6 +12,7 @@ const signUp = async (email: string, password: string) => {
     return {
       id: request.user.uid,
       token: request.user.accessToken,
+      email,
     };
   } catch (err: any) {
     throw err.message;

@@ -1,3 +1,6 @@
+/* eslint-disable import/namespace */
+import { LogBox } from 'react-native';
+
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
@@ -13,17 +16,19 @@ import store from './src/redux/store';
 const App = () => {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
-
   if (!isLoadingComplete) {
     return null;
   } else {
     return (
+      <>
+      {LogBox.ignoreAllLogs()}
       <SafeAreaProvider>
           <ReduxProvider store={store}>
           <Navigation colorScheme={colorScheme} />
           <StatusBar />
        </ReduxProvider>
         </SafeAreaProvider>
+      </>
     );
   }
 };

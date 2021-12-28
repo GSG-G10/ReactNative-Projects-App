@@ -34,6 +34,7 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 const storage = getStorage(app);
 const projectsRef = collection(db, "projects");
+const chatsRef = collection(db, "chats");
 const rtDatabase = getDatabase(app);
 
-export { db, auth, storage, projectsRef,rtDatabase };
+export { db, auth, storage, projectsRef,rtDatabase,chatsRef };

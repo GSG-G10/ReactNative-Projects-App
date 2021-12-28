@@ -1,8 +1,6 @@
 /* eslint-disable import/namespace */
 import { StyleSheet } from 'react-native';
-
-import { Text, View } from '../components/Themed';
-
+import Chat from '../components/Chat';
 
 
 const styles = StyleSheet.create({
@@ -22,11 +20,6 @@ const styles = StyleSheet.create({
   },
 });
 
-const  MessagesScreen =() =>  {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>MessagesScreen</Text>
-    </View>
-  );
-}
+const  MessagesScreen =() =>  <Chat/>
+
 export default MessagesScreen

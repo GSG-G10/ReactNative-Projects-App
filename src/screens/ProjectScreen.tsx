@@ -25,7 +25,7 @@ const ProjectScreen = ({route}:ProjectScreenProps) => {
       id: 0,
       name: "specifications",
       icon: <Feather name="settings" size={24} color="black" />,
-      cb: (id:any) => navigation.navigate("EstimateScreen",id),
+      cb: (id:any) => navigation.navigate("Specifications",id),
     },
     {
       id:1,
